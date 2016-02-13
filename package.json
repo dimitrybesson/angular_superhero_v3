@@ -1,0 +1,31 @@
+{
+  "name": "angular_superhero_v3",
+  "version": "1.0.0",
+  "description": "Angular Super Hero app Version 3",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CircleAcademy/angular_superhero_v3.git"
+  },
+  "keywords": [
+    "Chris",
+    "Cates",
+    "Circle",
+    "Academy"
+  ],
+  "author": "Chris Cates",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CircleAcademy/angular_superhero_v3/issues"
+  },
+  "homepage": "https://github.com/CircleAcademy/angular_superhero_v3#readme",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4",
+    "rethink-config": "^0.2.0",
+    "rethinkdbdash": "^2.2.17"
+  }
+}

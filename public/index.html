@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Angular Super Heros</title>
+    <link href="./style.css" rel="stylesheet"/>
+  </head>
+  <body ng-app="super" ng-controller="hero">
+    <h1>Angular Super Hero Registry</h1>
+
+    <table border="1">
+      <!-- The heading for the table -->
+      <tr>
+        <td>Super Hero</td>
+        <td>Powers</td>
+      </tr>
+      <!-- Repeat through the array of heroes -->
+      <tr ng-repeat="hero in heroes">
+        <td>{{hero.hero}}</td>
+        <td>{{hero.powers}}</td>
+      </tr>
+    </table>
+
+    <!-- Get the name of hero and their super power in the array -->
+    <p>The hero's name:</p>
+    <input type="text" ng-model="heroName"/>
+    <p>The hero's super power:</p>
+    <input type="text" ng-model="superPower"/>
+    <!-- Add a click event to submit a hero. -->
+    <button ng-click="submitHero()">Add Hero</button>
+
+    <!-- Link the angular library file -->
+    <script src="./angular.min.js"></script>
+    <!-- Link your custom app script AFTER the angular library -->
+    <script src="./super_hero.js"></script>
+  </body>
+</html>
