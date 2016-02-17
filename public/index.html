@@ -40,6 +40,7 @@
       </tr>
       <!-- Repeat through the array of heroes -->
       <tr ng-repeat="villain in villains">
+        <!-- villain.hero needs to be villain.villain -->
         <td>{{villain.hero}}</td>
         <td>{{villain.powers}}</td>
       </tr>
@@ -49,6 +50,7 @@
     <p>The villain's name:</p>
     <input type="text" ng-model="villainName"/>
     <p>The villain's super power:</p>
+    <!-- this needs to be ng-model="villainSuperPower" -->
     <input type="text" ng-model="superPower"/>
     <!-- Add a click event to submit a hero. -->
     <button ng-click="submitVillain()">Add Villain</button>
@@ -68,6 +70,6 @@
     <script src="./angular.min.js"></script>
     <!-- Link your custom app script AFTER the angular library -->
     <script src="./super_hero.js"></script>
-  
+
   </body>
 </html>

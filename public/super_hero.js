@@ -12,6 +12,7 @@ app.controller("hero", ["$scope", "$http", function($scope, $http) {
       "method": "GET",
       "url": "/villain"
     }).then(function(res) {
+      //This needs to be $scope.villains
       $scope.heroes = res.data;
     })
   }
@@ -24,6 +25,7 @@ app.controller("hero", ["$scope", "$http", function($scope, $http) {
       "url": "/villain",
       "data": {
         "villain": $scope.villainName,
+        //This needs to be villainSuperPower
         "powers": $scope.superPower
       }
     }).then(function() {
@@ -31,6 +33,7 @@ app.controller("hero", ["$scope", "$http", function($scope, $http) {
 
       $scope.getVillains();
       $scope.villainName = "";
+      //This needs to be villainSuperPower
       $scope.superPower = "";
     })
 
