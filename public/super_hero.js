@@ -2,6 +2,43 @@ var app = angular.module("super", []);
 
 app.controller("hero", ["$scope", "$http", function($scope, $http) {
 
+  $scope.villains = [];
+
+  $scope.villainName = "";
+  $scope.superPower = "";
+
+  $scope.getVillains = function() {
+    $http({
+      "method": "GET",
+      "url": "/villain"
+    }).then(function(res) {
+      $scope.heroes = res.data;
+    })
+  }
+
+  $scope.getVillains();
+
+  $scope.submitVillain = function() {
+    $http({
+      "method": "POST",
+      "url": "/villain",
+      "data": {
+        "villain": $scope.villainName,
+        "powers": $scope.superPower
+      }
+    }).then(function() {
+      //Reset the name and power to blank text
+
+      $scope.getVillains();
+      $scope.villainName = "";
+      $scope.superPower = "";
+    })
+
+  }
+
+
+  /////////////////////////////////////////////
+
   //The existing heroes in the app.
   $scope.heroes = [];
 

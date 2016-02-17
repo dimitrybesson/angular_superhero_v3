@@ -5,7 +5,7 @@ var r = require("rethinkdbdash")();
 require("rethink-config")({
   "r": r,
   "database": "superheroes",
-  "tables": ["heroes"]
+  "tables": ["heroes", "villain"]
 })
 
 //Initialize express server
@@ -43,6 +43,32 @@ server.get("/hero", function(req,res) {
     return res.send(result);
   })
 })
+
+//////////////////////////////////////////////////////////////////////////////
+
+server.post("/villain", function(req,res) {
+  //Grab the body of the request (req)
+  var villain = req.body.villain;
+  var powers = req.body.powers;
+  //Select the DB and table then insert the hero into it.
+  r.db("superheroes").table("villain").insert({
+    "villain": villain,
+    "powers": powers
+  }).then(function() {
+    //Return a confirmation message that the hero was added.
+    return res.send("Villain added!");
+  })
+});
+
+server.get("/villain", function(req,res) {
+  //Select the DB and table, this automatically gets the full list of heroes
+  r.db("superheroes").table("villain").then(function(result) {
+    //Send back the result which the array and objects of heroes.
+    return res.send(result);
+  })
+})
+
+////////////////////////////////////////////////////////////////////////////////
 
 //Listen to the server on PORT 3000.
 server.listen(3000);
